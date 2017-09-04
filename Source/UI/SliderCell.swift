@@ -117,7 +117,7 @@ class SliderCell : SettingsCell {
                                     toItem: valueLabel,
                                     attribute: .trailing,
                                     multiplier: 1.0,
-                                    constant: 5),
+                                    constant: 10),
                  NSLayoutConstraint(item: valueLabel,
                                     attribute: .lastBaseline,
                                     relatedBy: .equal,

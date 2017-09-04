@@ -153,7 +153,7 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].items.count
     }
-
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(SectionHeaderFooter.self, type: .header)
         header.appearance = appearance
@@ -186,13 +186,14 @@ extension SettingsViewController {
         default: return false
         }
     }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return (section == 0 && sections[section].title.characters.count == 0 ? 0 : 22)
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 22
+        return (section == 0 && (sections[section].footer == nil || sections[section].footer!.characters.count == 0) ? 0 : 22)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
